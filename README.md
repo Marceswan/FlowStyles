@@ -32,10 +32,10 @@ In your Salesforce Flow:
 1. Add a **Display Text** component to your Flow screen
 2. Click on the resource picker and select **Custom Label**
 3. Choose the appropriate FlowStyles label (e.g., `FlowStyles_Badge_Success`)
-4. Add your content between the opening tag from the label and a closing tag
+4. Add your content after the label - Salesforce will automatically close the HTML tags
 
 ### Important Note
-The custom labels contain only the opening HTML tags. You must add the corresponding closing tags and your content in the Flow builder.
+Salesforce automatically closes HTML tags in Flow Display Text components. Simply add your content after the custom label reference.
 
 ## Custom Labels Reference
 
@@ -95,8 +95,8 @@ Headers for organizing content into sections.
 1. Add a Display Text component
 2. Select Custom Label: `FlowStyles_Badge_Success`
 3. In the rich text editor, add:
-   ```html
-   {!$Label.FlowStyles_Badge_Success}Approved</span>
+   ```
+   {!$Label.FlowStyles_Badge_Success}Approved
    ```
 
 ### Creating a Warning Box
@@ -104,14 +104,11 @@ Headers for organizing content into sections.
 1. Add a Display Text component
 2. Select Custom Label: `FlowStyles_Box_Warning`
 3. In the rich text editor, add:
-   ```html
+   ```
    {!$Label.FlowStyles_Box_Warning}
-   <p>Please review the following items before proceeding:</p>
-   <ul>
-     <li>Item 1</li>
-     <li>Item 2</li>
-   </ul>
-   </div>
+   Please review the following items before proceeding:
+   • Item 1
+   • Item 2
    ```
 
 ### Displaying an Error Notification
@@ -119,18 +116,18 @@ Headers for organizing content into sections.
 1. Add a Display Text component
 2. Select Custom Label: `FlowStyles_Notification_Error`
 3. In the rich text editor, add:
-   ```html
+   ```
    {!$Label.FlowStyles_Notification_Error}
-   <p>An error occurred while processing your request. Please try again.</p>
-   </div>
+   An error occurred while processing your request. Please try again.
    ```
 
 ## Best Practices
 
-1. **Always close your tags**: The labels only provide opening tags
+1. **No closing tags needed**: Salesforce automatically closes HTML tags in Flow Display Text components
 2. **Test in sandbox first**: Preview your flows before deploying to production
 3. **Use semantic styling**: Choose labels based on meaning (success, error) not just color
 4. **Combine with Flow variables**: Use merge fields to display dynamic content within styled containers
+5. **Keep content simple**: Use plain text or basic formatting after the label reference
 
 ## Contributing
 
